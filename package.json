@@ -23,24 +23,24 @@
     "release": "release-it"
   },
   "dependencies": {
-    "@nestjs/mapped-types": "1.0.1",
-    "lodash": "4.17.21",
+    "@nestjs/mapped-types": "^1.0.1",
+    "lodash": "^4.17.21",
     "path-to-regexp": "3.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-angular": "17.0.0",
     "@fastify/swagger": "^7.4.0",
-    "@nestjs/common": "8.4.4",
-    "@nestjs/core": "8.4.4",
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
     "@nestjs/platform-fastify": "^9.0.0-next.2",
     "@types/jest": "27.5.1",
     "@types/lodash": "4.14.182",
     "@types/node": "17.0.35",
     "@typescript-eslint/eslint-plugin": "5.25.0",
     "@typescript-eslint/parser": "5.25.0",
-    "class-transformer": "0.5.1",
-    "class-validator": "0.13.2",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "eslint": "8.15.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
@@ -48,16 +48,16 @@
     "jest": "28.1.0",
     "lint-staged": "12.4.1",
     "prettier": "2.6.2",
-    "reflect-metadata": "0.1.13",
-    "release-it": "15.0.0",
+    "reflect-metadata": "^0.1.13",
+    "release-it": "^15.1.0",
     "swagger-parser": "10.0.3",
     "ts-jest": "28.0.2",
-    "typescript": "4.6.4"
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "@fastify/swagger": "^7.4.0",
-    "@nestjs/common": "^8.0.0",
-    "@nestjs/core": "^8.0.0",
+    "@nestjs/common": "^8.4.7",
+    "@nestjs/core": "^8.4.7",
     "reflect-metadata": "^0.1.12"
   },
   "peerDependenciesMeta": {
