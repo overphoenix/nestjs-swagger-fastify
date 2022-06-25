@@ -1,10 +1,13 @@
 {
   "name": "nestjs-swagger-fastify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nest - modern, fast, powerful node.js web framework (@swagger)",
   "author": "Kamil Mysliwiec",
+  "contributors": [
+    "Taaliman"
+  ],
   "license": "MIT",
-  "repository": "https://github.com/nestjs/swagger",
+  "repository": "https://github.com/taaliman/nestjs-swagger-fastify",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "format": "prettier \"lib/**/*.ts\" --write",
@@ -30,7 +33,7 @@
     "@fastify/swagger": "^7.4.0",
     "@nestjs/common": "8.4.4",
     "@nestjs/core": "8.4.4",
-    "@nestjs/platform-fastify": "^8.4.7",
+    "@nestjs/platform-fastify": "^9.0.0-next.2",
     "@types/jest": "27.5.1",
     "@types/lodash": "4.14.182",
     "@types/node": "17.0.35",
@@ -41,7 +44,6 @@
     "eslint": "8.15.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
-    "express": "4.18.1",
     "husky": "8.0.1",
     "jest": "28.1.0",
     "lint-staged": "12.4.1",

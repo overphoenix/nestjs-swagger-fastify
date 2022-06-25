@@ -1,5 +1,5 @@
 export const appControllerText = `import { Controller, Post, HttpStatus } from '@nestjs/common';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiOperation } from 'nestjs-swagger-fastify';
 
 class Cat {}
 
@@ -40,9 +40,9 @@ export class AppController {
 export const appControllerTextTranspiled = `\"use strict\";
 Object.defineProperty(exports, \"__esModule\", { value: true });
 exports.AppController = void 0;
-const openapi = require(\"@nestjs/swagger\");
+const openapi = require(\"nestjs-swagger-fastify\");
 const common_1 = require(\"@nestjs/common\");
-const swagger_1 = require("@nestjs/swagger");
+const nestjs_swagger_fastify_1 = require("nestjs-swagger-fastify");
 class Cat {
 }
 let AppController = class AppController {
@@ -72,12 +72,12 @@ __decorate([
     openapi.ApiResponse({ status: 201, type: Cat })
 ], AppController.prototype, \"create\", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: "find a Cat" }),
+    (0, nestjs_swagger_fastify_1.ApiOperation)({ summary: "find a Cat" }),
     Get(),
     openapi.ApiResponse({ status: 200, type: Cat })
 ], AppController.prototype, \"findOne\", null);
 __decorate([
-    (0, swagger_1.ApiOperation)({ summary: "find all Cats im comment", description: 'find all Cats' }),
+    (0, nestjs_swagger_fastify_1.ApiOperation)({ summary: "find all Cats im comment", description: 'find all Cats' }),
     Get(),
     HttpCode(common_1.HttpStatus.NO_CONTENT),
     openapi.ApiResponse({ status: common_1.HttpStatus.NO_CONTENT, type: [Cat] })

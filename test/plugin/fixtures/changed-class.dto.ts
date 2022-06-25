@@ -14,7 +14,7 @@ export class ChangedCatDto {
 export const changedCatDtoTextTranspiled = `\"use strict\";
 Object.defineProperty(exports, \"__esModule\", { value: true });
 exports.ChangedCatDto = void 0;
-var openapi = require(\"@nestjs/swagger\");
+var openapi = require(\"nestjs-swagger-fastify\");
 var ChangedCatDto = /** @class */ (function () {
     function ChangedCatDto() {
     }

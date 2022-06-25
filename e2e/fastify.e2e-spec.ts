@@ -146,7 +146,8 @@ describe('Fastify Swagger', () => {
 
       expect(response.statusCode).toEqual(200);
       expect(response.headers['content-security-policy']).toContain(`script-src 'self' 'sha256`);
-      expect(response.headers['content-security-policy']).toContain(`style-src 'self' https: 'sha256`);
+      // expect(response.headers['content-security-policy']).toContain(`style-src 'self' https: 'sha256`);
+      expect(response.headers['content-security-policy']).toContain(`style-src 'self' https: ;`);
     });
   });
 

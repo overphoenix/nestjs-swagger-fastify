@@ -75,7 +75,7 @@ export abstract class Audit {
 
 export const createCatDtoTextAlt2Transpiled = `import { createRequire as _createRequire } from "module";
 const __require = _createRequire(import.meta.url);
-const openapi = __require("@nestjs/swagger");
+const openapi = __require("nestjs-swagger-fastify");
 import { CreateDateColumn, UpdateDateColumn, VersionColumn } from 'typeorm';
 export class Audit {
     static _OPENAPI_METADATA_FACTORY() {
