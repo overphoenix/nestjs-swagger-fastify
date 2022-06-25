@@ -1,0 +1,980 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/v1": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v2": {
+      "get": {
+        "operationId": "AppController_getHello",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/alias1": {
+      "get": {
+        "operationId": "AppController_withAliases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/alias2": {
+      "get": {
+        "operationId": "AppController_withAliases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v2/alias1": {
+      "get": {
+        "operationId": "AppController_withAliases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v2/alias2": {
+      "get": {
+        "operationId": "AppController_withAliases",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/express:colon:another/{prop}": {
+      "get": {
+        "operationId": "AppController_withColonExpress",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v2/express:colon:another/{prop}": {
+      "get": {
+        "operationId": "AppController_withColonExpress",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/fastify:{colon}:{another}/{prop}": {
+      "get": {
+        "operationId": "AppController_withColonFastify",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v2/fastify:{colon}:{another}/{prop}": {
+      "get": {
+        "operationId": "AppController_withColonFastify",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/cats": {
+      "post": {
+        "operationId": "CatsController_create",
+        "x-foo": {
+          "test": "bar "
+        },
+        "summary": "Create cat",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The record has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cat"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden."
+          }
+        },
+        "tags": [
+          "cats",
+          "create cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "CatsController_findAll",
+        "x-multiple": {
+          "test": "test"
+        },
+        "x-codeSamples": [
+          {
+            "lang": "JavaScript",
+            "source": "console.log('Hello World');"
+          }
+        ],
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "minimum": 0,
+              "maximum": 10000,
+              "exclusiveMaximum": true,
+              "exclusiveMinimum": true,
+              "title": "Page",
+              "format": "int32",
+              "default": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "_sortBy",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "enum",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/LettersEnum"
+            }
+          },
+          {
+            "name": "enumArr",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/LettersEnum"
+              }
+            }
+          },
+          {
+            "name": "beforeDate",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats",
+          "tag2",
+          "tag1"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/{id}": {
+      "get": {
+        "operationId": "CatsController_findOne",
+        "x-auth-type": "NONE",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The found record",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cat"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/explicit-query": {
+      "get": {
+        "operationId": "CatsController_findAllWithExplicitQuery",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "minimum": 0,
+              "maximum": 10000,
+              "exclusiveMaximum": true,
+              "exclusiveMinimum": true,
+              "title": "Page",
+              "format": "int32",
+              "default": 0,
+              "type": "number"
+            }
+          },
+          {
+            "name": "_sortBy",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "nullable": true,
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "enum",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/LettersEnum"
+            }
+          },
+          {
+            "name": "enumArr",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/LettersEnum"
+              }
+            }
+          },
+          {
+            "name": "beforeDate",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "format": "date-time",
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "additionalProperties": true,
+              "type": "object"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/bulk": {
+      "get": {
+        "operationId": "CatsController_findAllBulk",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      },
+      "post": {
+        "operationId": "CatsController_createBulk",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/as-form-data": {
+      "post": {
+        "operationId": "CatsController_createAsFormData",
+        "summary": "Create cat",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCatDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The record has been successfully created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cat"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden."
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/site*": {
+      "get": {
+        "operationId": "CatsController_getSite",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/with-enum/{type}": {
+      "get": {
+        "operationId": "CatsController_getWithEnumParam",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B",
+                "C"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    },
+    "/api/cats/with-random-query": {
+      "get": {
+        "operationId": "CatsController_getWithRandomQuery",
+        "parameters": [
+          {
+            "name": "header",
+            "in": "header",
+            "description": "Test",
+            "required": false,
+            "schema": {
+              "default": "test",
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "required": true,
+            "in": "query",
+            "schema": {
+              "minLength": 10,
+              "maxLength": 100,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "cats"
+        ],
+        "security": [
+          {
+            "key2": [],
+            "key1": []
+          },
+          {
+            "bearer": []
+          },
+          {
+            "basic": []
+          }
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Cats example",
+    "description": "The cats API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "cats",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "basic": {
+        "type": "http",
+        "scheme": "basic"
+      },
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      },
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {}
+      },
+      "api_key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "api_key"
+      },
+      "key1": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "key1"
+      },
+      "key2": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "key2"
+      },
+      "cookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "connect.sid"
+      }
+    },
+    "schemas": {
+      "ExtraModel": {
+        "type": "object",
+        "properties": {
+          "one": {
+            "type": "string"
+          },
+          "two": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "one",
+          "two"
+        ]
+      },
+      "LettersEnum": {
+        "type": "string",
+        "enum": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "TagDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "name"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "CreateCatDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "age": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 200
+          },
+          "_breed": {
+            "type": "string"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "isReadonly": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "enum": {
+            "$ref": "#/components/schemas/LettersEnum"
+          },
+          "enumArr": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LettersEnum"
+            }
+          },
+          "tag": {
+            "description": "tag",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TagDto"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name",
+          "age",
+          "_breed",
+          "tags",
+          "createdAt",
+          "urls",
+          "options",
+          "enum",
+          "enumArr"
+        ]
+      },
+      "Cat": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Kitty",
+            "description": "The name of the Cat"
+          },
+          "age": {
+            "type": "number",
+            "example": 1,
+            "minimum": 0,
+            "description": "The age of the Cat"
+          },
+          "breed": {
+            "type": "string",
+            "example": "Maine Coon",
+            "description": "The breed of the Cat"
+          },
+          "_tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "_options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "isReadonly": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "enum": {
+            "type": "string",
+            "enum": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          "enumArr": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "A",
+                "B",
+                "C"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "age",
+          "breed",
+          "_tags",
+          "createdAt",
+          "urls",
+          "_options",
+          "enum",
+          "enumArr"
+        ]
+      }
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    },
+    {
+      "basic": [],
+      "cookie": []
+    }
+  ]
+}
